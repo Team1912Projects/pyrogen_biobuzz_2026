@@ -18,13 +18,21 @@ public class ExampleSubsystem implements Subsystem {
     }
 
     public void doMoveUp() {
-        double x = robot.exampleServo.get();
-        robot.exampleServo.set(x + .05);
+        double x = robot.rampServo.get();
+        robot.rampServo.set(x + .05);
     }
 
     public void doMoveDown() {
-        double x = robot.exampleServo.get();
-        robot.exampleServo.set(x - .05);
+        double x = robot.rampServo.get();
+        robot.rampServo.set(x - .05);
+    }
+
+    public void doIntakeIn() {
+        robot.intakeMotor.set(1);
+    }
+
+    public void doIntakeOut() {
+        robot.intakeMotor.set(-1);
     }
 
     public Command moveUp() {
@@ -34,4 +42,6 @@ public class ExampleSubsystem implements Subsystem {
     public Command moveDown() {
         return new InstantCommand(this::doMoveDown);
     }
+
+    public Command IntakeIn(){return new InstantCommand(this::doIntakeIn);}
 }

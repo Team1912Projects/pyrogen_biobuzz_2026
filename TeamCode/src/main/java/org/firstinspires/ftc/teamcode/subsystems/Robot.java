@@ -11,15 +11,18 @@ import com.seattlesolvers.solverslib.hardware.servos.ServoEx;
 
 public class Robot {
     public Telemetry telemetry;
-    public ServoEx exampleServo;
+    public ServoEx rampServo;
     public DifferentialDrive drive;
+    public Motor intakeMotor;
     //public MecanumDrive drive;
     public RevIMU imu;
 
     public Robot(HardwareMap hardwareMap, Telemetry telemetry) {
         this.telemetry = telemetry;
 
-        exampleServo = new ServoEx(hardwareMap, "servo_name");
+        rampServo = new ServoEx(hardwareMap, "servo_name");
+        intakeMotor = new Motor(hardwareMap,"IntakeMotor");
+
 
         Motor fl, fr, bl, br;
         fl = new Motor(hardwareMap, "frontLeft");
