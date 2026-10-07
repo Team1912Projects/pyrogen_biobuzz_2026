@@ -30,6 +30,13 @@ public class DrivingSample extends LinearOpMode {
         driverOp.getGamepadButton(GamepadKeys.Button.B)
                 .and(driverOp.getGamepadButton(GamepadKeys.Button.A).negate())
                 .whenActive(exampleSubsystem.moveUp());
+        driverOp.getGamepadButton(GamepadKeys.Button.X)
+                        .and(driverOp.getGamepadButton(GamepadKeys.Button.Y).negate())
+                                .whenActive(exampleSubsystem.IntakeIn());
+        driverOp.getGamepadButton(GamepadKeys.Button.Y)
+                        .and(driverOp.getGamepadButton(GamepadKeys.Button.X).negate())
+                                .whenActive(exampleSubsystem.IntakeOut());
+
                 // .whenActive(new InstantCommand(() -> exampleSubsystem.doMoveUp()));
 
         waitForStart();

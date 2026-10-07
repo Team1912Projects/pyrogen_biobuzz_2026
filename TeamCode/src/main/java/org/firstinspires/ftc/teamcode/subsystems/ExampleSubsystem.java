@@ -46,4 +46,5 @@ public class ExampleSubsystem implements Subsystem {
     }
 
     public Command IntakeIn(){return new InstantCommand(this::doIntakeIn);}
+    public Command IntakeOut(){return new InstantCommand(this::doIntakeOut);}
 }
